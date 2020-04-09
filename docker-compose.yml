@@ -1,0 +1,11 @@
+version: "3"
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./scripts/nginx.conf:/etc/nginx/conf.d/actor.conf
+      - ./dist:/app/actor
+    container_name: actor
+    ports:
+      - "18000:8000" 
+    command: ["nginx", "-g", "daemon off;"]
